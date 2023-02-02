@@ -1,3 +1,5 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 public class Test{
     
     //exercise 1: 
@@ -30,9 +32,27 @@ public class Test{
         a = b;
         b = temp;
     }
+    //exercise 4:
+    //reverse string function
+    public static String reverse_string(String myString){
+        String reverse = "";
+        for(int i = myString.length()-1; i > -1; i--){
+            reverse += myString.charAt(i);
+
+        }
+        return reverse;
+    }
+
+    //exercise 5:
+    //print local time 
+    public static void time(){
+        System.out.println(java.time.LocalTime.now());
+    }
 
     public static void main(String[] args) {
         System.out.println(binary(7));
         System.out.println(average(1, 2, 3));
+        System.out.println(reverse_string("Hello World"));
+        time();
     }
 }
