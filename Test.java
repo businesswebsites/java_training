@@ -49,10 +49,27 @@ public class Test{
         System.out.println(java.time.LocalTime.now());
     }
 
+    //exercise 6
+    //function to convert seconds to hours, minutes and seconds
+    public static String secondsToHours(int seconds){
+        String erg = "";
+        double minutes = seconds / 60;
+        double hours = minutes / 60;
+        int final_hours = (int)Math.floor(hours);
+        seconds = seconds - (final_hours * 60 * 60);
+        minutes = seconds / 60;
+        int final_minutes = (int)Math.floor(minutes);
+        seconds = seconds - final_minutes * 60;
+        int final_seconds = (int)Math.floor(seconds);
+        erg = Integer.toString(final_hours) + ":" + Integer.toString(final_minutes) + ":" + Integer.toString(final_seconds);
+        return erg;
+    }
+
     public static void main(String[] args) {
         System.out.println(binary(7));
         System.out.println(average(1, 2, 3));
         System.out.println(reverse_string("Hello World"));
         time();
+        System.out.println(secondsToHours(86399));
     }
 }
