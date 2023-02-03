@@ -82,20 +82,27 @@ public class Test{
                 }
             }
         }
-
     }
 
     public static void main(String[] args) {
+        //binary converter
         System.out.println(binary(7));
+        //average calculator
         System.out.println(average(1, 2, 3));
+        //reverse string converter
         System.out.println(reverse_string("Hello World"));
+        //output time function
         time();
+        //seconds to hours/minutes/seconds converter
         System.out.println(secondsToHours(86399));
+        //array to test function
         int arr[] = { 30, 40, 20, 10, 50, 90, 80};
+        //bubbleSort function to sort array
         bubbleSort(arr);
         for(int i = 0; i < arr.length; i++){
             System.out.println(arr[i]);
         }
-        //System.out.println(arr);
+
+        
     }
 }
