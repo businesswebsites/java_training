@@ -83,6 +83,25 @@ public class Test{
             }
         }
     }
+    //exercise 7
+    //searching algorithms
+    //linear search
+    public static String linearSearch(int arr[], int element){
+        int n = arr.length;
+        String erg = "";
+        int val = -1;
+        for(int i = 0; i < n; i++){
+            if(arr[i] == element){
+                val = i;
+            }
+        }
+        if(val > -1){
+            erg = "The element was found in the array at index: " + Integer.toString(val); 
+        }else{
+            erg = "The element was not found in the array!";
+        }
+        return erg;
+    }
 
     public static void main(String[] args) {
         //binary converter
@@ -102,7 +121,9 @@ public class Test{
         for(int i = 0; i < arr.length; i++){
             System.out.println(arr[i]);
         }
+        //linear search with the sorted array
+        System.out.println(linearSearch(arr, 30));
 
-        
+
     }
 }
