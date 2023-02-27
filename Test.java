@@ -136,8 +136,32 @@ public class Test{
                 last = m -1;
             }
         }
+        return -1; 
+    }
+    //exercise 9 
+    //exponential search
+    public static int exponentialSearch(int[] arr, int value){
+        if(arr[0] == value){
+            return 0;
+        }
+        int i = 1;
+        while(i < arr.length && arr[i] <= value){
+            i *= 2;
+            return binarySearch(arr, value);
+        }
         return -1;
-        
+    }
+    //exercise 10
+    //check if double value is integer
+    public static boolean checkDoubleIsInt(double number){
+        String doubleString = Double.toString(number);
+        String[] arr = doubleString.split("\\.");
+        int checker = Integer.parseInt(arr[1]);
+        if(checker == 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public static void main(String[] args) throws IOException{
@@ -177,5 +201,7 @@ public class Test{
         int [] new_arr = {29, 2, 19, 39, 20, 40, 99, 7};
         //array new_arr will be sorted and after that, it will showed the index of the value in the sorted array
         System.out.println(binarySearch(new_arr, 7));
+        System.out.println(exponentialSearch(new_arr, 20));
+        System.out.println(checkDoubleIsInt(2.00000000));
     }
 }
