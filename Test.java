@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket; 
 import java.net.Socket;
 import java.util.Date;
+import java.util.Arrays;
 
 public class Test{
     
@@ -110,6 +111,35 @@ public class Test{
         return erg;
     }
 
+    //exercise 7
+    //convert inch to meter
+    public static double inchToMeter(double inch){
+        double meter = inch * 0.0254;
+        return meter;
+    }
+
+    //exercise 8
+    //binary search
+    public static int binarySearch(int[] arr, int value){
+        Arrays.sort(arr);
+        int len = arr.length;
+        int first = 0;
+        int last = len-1;
+
+        while(first <= last){
+            int m = (first + last) / 2;
+            if(value == arr[m]){
+                return m;
+            }else if(value > arr[m]){
+                first = m +1;
+            }else{
+                last = m -1;
+            }
+        }
+        return -1;
+        
+    }
+
     public static void main(String[] args) throws IOException{
         //binary converter
         System.out.println(binary(7));
@@ -132,16 +162,20 @@ public class Test{
         System.out.println(linearSearch(arr, 30));
 
 
-
+        //code is commented to execute other functions
         //HTTP Server Socket
-        ServerSocket server = new ServerSocket(8080);
-        System.out.println("Wait for Connection to Port 8080....");    
-        while(true){
-            try(Socket socket = server.accept()){
-                Date today = new Date();
-                String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + today;
-                socket.getOutputStream().write(httpResponse.getBytes("UTF-8"));
-            }
-        }
+        // ServerSocket server = new ServerSocket(8080);
+        // System.out.println("Wait for Connection to Port 8080....");    
+        // while(true){
+        //     try(Socket socket = server.accept()){
+        //         Date today = new Date();
+        //         String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + today;
+        //         socket.getOutputStream().write(httpResponse.getBytes("UTF-8"));
+        //     }
+        // }
+        System.out.println(inchToMeter(2.89));
+        int [] new_arr = {29, 2, 19, 39, 20, 40, 99, 7};
+        //array new_arr will be sorted and after that, it will showed the index of the value in the sorted array
+        System.out.println(binarySearch(new_arr, 7));
     }
 }
